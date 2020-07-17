@@ -1,0 +1,10 @@
+.contenu{
+    width:50%;
+}
+.main,header,nav{
+    background-color: #4b0800!important;
+}
+.fa::before{
+    font-size: 50px;
+    color: white;
+}
