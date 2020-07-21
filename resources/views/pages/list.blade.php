@@ -2,7 +2,7 @@
 
 @section('dashboard-content')
     <div class="border-bottom p-2">
-        <a href="{{url('email')}}" class="btn btn-primary">Envoyer un mail a tous</a>
+        <a href="{{url('email/all')}}" class="btn btn-primary">Envoyer un mail a tous</a>
     </div>
 
     @if(session('reponse'))
@@ -45,8 +45,8 @@
                     <a  class="d-inline badge badge-success badge-pill" href="{{url('Etudiant/'.$etudiant->id.'/edit')}}">Modifier</a>
                 </div>
                 <div class="mt-2">
-                    <a  class="d-inline badge badge-primary badge-pill" href="{{url('Etudiant/'.$etudiant->id.'/edit')}}">Impression</a>
-                    <a  class="d-inline badge badge-secondary badge-pill" href="{{url('email?etudiant='.$etudiant->id)}}">Mail</a>
+                    <a  class="d-inline badge badge-primary badge-pill" href="{{url('Etudiant/'.$etudiant->id)}}">Impression</a>
+                    <a  class="d-inline badge badge-secondary badge-pill" href="{{url('email/'.$etudiant->id)}}">Mail</a>
                 </div>
             </td>
         </tr>

@@ -8,13 +8,13 @@
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
     </head>
 <body class="h-100">
-   <header>
+   <header id="head">
        <nav class="nav navbar  border-bottom">
            <ul class="">
                <li class="list-unstyled"><a href="">Cards Xpress</a></li>
            </ul>
            <ul class="d-flex">
-               
+
            </ul>
        </nav>
    </header>
@@ -27,5 +27,6 @@
 
 <script src="{{asset('js/jquery-3.3.1.js')}}"></script>
    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+@yield('script')
 </body>
 </html>

@@ -10,10 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::resource('Etudiant','etudiantController');
 
 Route::post('email','emailController@store');
-Route::get('email','emailController@create');
+Route::get('email/{id}','emailController@create');
 Route::get('connexion', function () {
     return view('auth\connection');
 })->name('connexion');
@@ -26,6 +27,7 @@ Route::get('/', function () {
 Route::get('register', function () {
     return view('auth\Inscription');
 })->middleware('auth');
+Route::get('logout','Auth\LoginController@logout');
 Route::post('log','Auth\LoginController@login');
 Route::post('register','Auth\SignController@store');
 

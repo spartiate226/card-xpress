@@ -53,11 +53,12 @@ class etudiantController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Etudiant  $etudiant
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show(Etudiant $etudiant)
+    public function show($etudiant)
     {
-        //
+        $etud=Etudiant::find($etudiant);
+        return  view('pages.impression',compact('etud'));
     }
 
     /**
@@ -66,9 +67,10 @@ class etudiantController extends Controller
      * @param  \App\Etudiant  $etudiant
      * @return \Illuminate\Http\Response
      */
-    public function edit(Etudiant $etudiant)
+    public function edit($etudiant)
     {
-        //
+      $etud=Etudiant::find($etudiant);
+      return view('pages.modifier',compact('etud'));
     }
 
     /**
@@ -78,9 +80,20 @@ class etudiantController extends Controller
      * @param  \App\Etudiant  $etudiant
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Etudiant $etudiant)
+    public function update(Request $request,$etudiant)
     {
-        //
+        $etud=Etudiant::find($etudiant);
+        $etud->update([
+            "matricule"=>$request->matricule,
+            "nom"=>$request->nom,
+            "prenom"=>$request->prenom,
+            "email" =>$request->email,
+            "niveau"=>$request->niveau,
+            "cycle" =>$request->cycle,
+            "annee_ac" =>$request->annee_ac,
+        ]);
+
+        return redirect()->route('Etudiant.edit',[$etudiant])->with(['reponse'=>"Etudiant mis a jour!!"]);
     }
 
     /**
